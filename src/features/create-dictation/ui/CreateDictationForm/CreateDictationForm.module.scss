@@ -1,0 +1,25 @@
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.pageTitle {
+  margin-bottom: 32px !important;
+  font-weight: 700 !important;
+  color: #262626;
+}
+
+
+.card {
+  background: #ffffff;
+  padding: 40px; 
+  border-radius: 16px; 
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04); 
+  border: 1px solid #f0f0f0;
+
+  @media (max-width: 768px) {
+    padding: 24px;
+  }
+}

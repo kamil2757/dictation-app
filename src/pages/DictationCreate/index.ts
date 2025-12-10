@@ -1,0 +1,1 @@
+export { DictationCreatePage } from './ui/DictationCreatePage';
