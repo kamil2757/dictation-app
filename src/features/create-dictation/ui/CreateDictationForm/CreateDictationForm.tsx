@@ -1,13 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Typography, Row, Col, message } from 'antd';
+import { Form,  Row, Col, message } from 'antd';
 import { ROUTES } from 'shared/config';
 import { useCreateDictationMutation } from 'entities/dictation';
-import styles from './CreateDictationForm.module.scss';
 
-import { MainInputs,SettingsSidebar } from '../index';
+import { MainInputs,SettingsSidebar,DictationFormLayout } from 'entities/dictation';
 
-const { Title } = Typography;
 
 export const CreateDictationForm: React.FC = () => {
   const navigate = useNavigate();
@@ -52,12 +50,7 @@ const onFinish = async (values: any) => {
   };
 
   return (
-    <div className={styles.container}>
-      <Title level={2} className={styles.pageTitle}>
-        Создание диктанта
-      </Title>
-
-      <div className={styles.card}>
+    <DictationFormLayout title="Создание нового диктанта">
         <Form
           form={form} 
           layout="vertical"
@@ -77,7 +70,6 @@ const onFinish = async (values: any) => {
             </Col>
           </Row>
         </Form>
-      </div>
-    </div>
+    </DictationFormLayout>
   );
 };
