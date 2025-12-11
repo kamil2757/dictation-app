@@ -31,7 +31,6 @@ export const DictationListPage: React.FC = () => {
   return (
     <div className={styles.pageWrapper}>
       
-      {/* 1. ЛЕВАЯ ЧАСТЬ (Сайдбар приклеен слева) */}
       <aside className={styles.sidebar}>
         <DictationSidebarFilters 
           language={language}
@@ -39,10 +38,8 @@ export const DictationListPage: React.FC = () => {
         />
       </aside>
 
-      {/* 2. ПРАВАЯ ЧАСТЬ (Контент на всю ширину) */}
       <main className={styles.content}>
         
-        {/* Хедер страницы (теперь внутри контента) */}
         <div className={styles.header}>
           <Title level={2}>Библиотека</Title>
           <Segmented
@@ -56,7 +53,6 @@ export const DictationListPage: React.FC = () => {
           />
         </div>
 
-        {/* Список карточек */}
         {isLoading ? (
           <div style={{ textAlign: 'center', marginTop: 50 }}><Spin size="large" /></div>
         ) : (

@@ -6,7 +6,7 @@ export const Footer: React.FC = () => {
       textAlign: 'center', 
       padding: '20px', 
       background: '#f0f2f5', 
-      marginTop: 'auto' // Чтобы прилипал к низу
+      marginTop: 'auto'
     }}>
       Dictation Platform ©{new Date().getFullYear()}. Created for practice.
     </footer>

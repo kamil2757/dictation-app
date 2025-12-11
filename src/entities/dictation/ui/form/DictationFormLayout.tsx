@@ -1,12 +1,12 @@
 import React, {type ReactNode } from 'react';
 import { Typography } from 'antd';
-import styles from './DictationFormLayout.module.scss'; // Твои стили здесь
+import styles from './DictationFormLayout.module.scss';
 
 const { Title } = Typography;
 
 interface DictationFormLayoutProps {
   title: string;
-  children: ReactNode; // Сюда мы вставим саму Форму
+  children: ReactNode; 
 }
 
 export const DictationFormLayout: React.FC<DictationFormLayoutProps> = ({ title, children }) => {

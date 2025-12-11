@@ -15,16 +15,12 @@ export const EditDictationForm: React.FC<EditDictationFormProps> = ({ dictationI
   const navigate = useNavigate();
   const [form] = Form.useForm();
 
-  // 1. Загрузка данных
   const { data: dictation, isLoading: isFetching } = useGetDictationByIdQuery(dictationId);
   
-  // 2. Мутация обновления
   const [updateDictation, { isLoading: isSaving }] = useUpdateDictationMutation();
 
-  // 3. Заполняем форму, когда пришли данные
   useEffect(() => {
     if (dictation) {
-      // Превращаем массив объектов [{text: 'word'}] в строку "word, word"
       const wordsString = dictation.words?.map((w) => w.text).join(', ') || '';
 
       form.setFieldsValue({
@@ -32,20 +28,18 @@ export const EditDictationForm: React.FC<EditDictationFormProps> = ({ dictationI
         description: dictation.description,
         language: dictation.language,
         isPublic: dictation.isPublic,
-        wordsString: wordsString, // Подставляем строку
+        wordsString: wordsString,
       });
     }
   }, [dictation, form]);
 
-  // 4. Сохранение
   const onFinish = async (values: any) => {
     try {
-      // Превращаем строку обратно в массив объектов
       const wordsArray = values.wordsString
         ?.split(',')
         .map((w: string) => w.trim())
         .filter((w: string) => w.length > 0)
-        .map((text: string) => ({ text })); // { text: "word" }
+        .map((text: string) => ({ text }));
 
       if (!wordsArray || wordsArray.length === 0) {
         message.error('Список слов пуст!');
@@ -85,13 +79,10 @@ export const EditDictationForm: React.FC<EditDictationFormProps> = ({ dictationI
           size="large"
         >
           <Row gutter={[40, 40]}>
-            {/* Левая колонка */}
             <Col xs={24} md={16}>
-              {/* Переиспользуем MainInputs! */}
               <MainInputs form={form} isLoading={isSaving} />
             </Col>
 
-            {/* Правая колонка */}
             <Col xs={24} md={8}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
                 <SettingsSidebar form={form}  />

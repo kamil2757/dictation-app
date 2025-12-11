@@ -8,7 +8,8 @@ import {
   RegisterPage, 
   DictationCreatePage,
   DictationListPage,
-  DictationEditPage
+  DictationEditPage,
+  DictationRunPage
 } from 'pages';
 
 export const AppRouter: React.FC = () => {
@@ -19,6 +20,7 @@ export const AppRouter: React.FC = () => {
       <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
       <Route path={ROUTES.DICTATION_LIST} element={<DictationListPage />} />
       <Route path={ROUTES.DICTATION_CREATE} element={<DictationCreatePage />} />
+      <Route path="/dictations/:id/run" element={<DictationRunPage />} />
       <Route path="/dictations/:id/edit" element={<DictationEditPage />} />
       <Route path="*" element={<div style={{ textAlign: 'center', marginTop: 50 }}>404 Страница не найдена</div>} />
     </Routes>
